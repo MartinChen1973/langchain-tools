@@ -17,11 +17,11 @@ def test_retriever_from_md_file(md_file_path):
     model = ChatOpenAI()
     output_parser = StrOutputParser()
 
-    setup_and_retrieval = RunnableParallel(
+    question_and_context = RunnableParallel(
         {"context": retriever,
          "question": RunnablePassthrough()} 
     )
-    chain = setup_and_retrieval | prompt | model | output_parser
+    chain = question_and_context | prompt | model | output_parser
 
     question = "Who should I ask for sick leave from?"
     result = chain.invoke(question)
