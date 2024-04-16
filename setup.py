@@ -73,7 +73,7 @@ def setup_package():
 if __name__ == "__main__":
     if len(sys.argv) == 1:
         # Default to building the package if no arguments are provided
-        sys.argv.append('sdist') 
+        sys.argv.append('sdist')
         sys.argv.append('bdist_wheel')
     
     remove_build_dirs()  # Clean old build files
