@@ -17,11 +17,11 @@ def test_retriever_from_url(url):
     model = ChatOpenAI()
     output_parser = StrOutputParser()
 
-    setup_and_retrieval = RunnableParallel(
+    question_and_context = RunnableParallel(
         {"context": retriever,
          "question": RunnablePassthrough()} 
     )
-    chain = setup_and_retrieval | prompt | model | output_parser
+    chain = question_and_context | prompt | model | output_parser
 
     question = "Can Langsmith help with testing?"
     result = chain.invoke(question)

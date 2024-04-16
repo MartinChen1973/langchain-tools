@@ -1,3 +1,4 @@
+README.md
 setup.py
 langchain_tools.egg-info/PKG-INFO
 langchain_tools.egg-info/SOURCES.txt
@@ -9,7 +10,6 @@ src/retriever/LangchainRetriever.py
 src/retriever/__init__.py
 src/retriever/md/__init__.py
 src/retriever/md/split_md.py
-tests/Untitled-1.py
 tests/__init__.py
 tests/main_tests.py
 tests/test_retriever_from_md_file.py
