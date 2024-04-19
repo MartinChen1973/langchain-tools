@@ -2,7 +2,6 @@
 from math import e
 from pdb import run
 
-from src.retriever.md.split_md import parse_markdown
 from langchain_openai.embeddings import OpenAIEmbeddings
 from langchain_community.vectorstores import DocArrayInMemorySearch
 
@@ -12,6 +11,8 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_core.runnables import RunnableParallel, RunnablePassthrough
+
+from langchain_tools.retriever.md.split_md import parse_markdown
 
 class LangChainRetriever:
     """
@@ -25,11 +26,11 @@ class LangChainRetriever:
     Methods:
         create_retriever_from_file(file_path, embedding): Create a retriever from a markdown file.
         create_retriever_from_url(url): Create a retriever from a URL.
-        create_runnable_from_file(file_path, embedding): Create a runnable from a markdown file.
+        create_question_and_context_from_file(file_path, embedding): Create a runnable from a markdown file.
     """
 
     @staticmethod
-    def create_runnable_from_file(file_path, embedding=None):
+    def create_question_and_context_from_file(file_path, embedding=None):
         """
         Create a Runnable object from a markdown file which facilitates parallel execution 
         of search queries against the indexed text along with additional processing.
@@ -99,7 +100,7 @@ class LangChainRetriever:
         return retriever
 
     @staticmethod
-    def create_runnable_from_url(url, embedding=None):
+    def create_question_and_context_from_url(url, embedding=None):
         """
         Create a Runnable object from web content at a specified URL which facilitates parallel execution
         of search queries against the indexed text along with additional processing.

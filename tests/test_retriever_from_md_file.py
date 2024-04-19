@@ -1,10 +1,11 @@
 import sys
 import os
 
+from langchain_tools.retriever.LangchainRetriever import LangChainRetriever
+
 # Adjust the path to include the directory above the current script's directory
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from src.retriever.LangchainRetriever import LangChainRetriever
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
